@@ -21,6 +21,11 @@
 | name     　　　 | string  | null: false                   |
 | image          | string  | null: false                   |
 | text           | text    | null: false                   |
+| category       | integer | null: false                   |
+| condition      | integer | null: false                   |
+| delivery_pay   | integer | null: false                   |
+| prefectures_id | integer | null: false                   |
+| delivery_day   | integer | null: false                   |
 | price          | integer | null: false                   |
 | user_id        | integer | null: false foreign_key: true |
 
@@ -29,14 +34,12 @@
 - has_one :order
 - belongs_to_active_hash
 
-## order テーブル
+## orders テーブル
 
 | column       | Type    | Option                        |
 |--------------|---------|-------------------------------|
 | user_id      | integer | null: false foreign_key: true |
 | items_id     | integer | null: false foreign_key: true |
-| addresses_id | integer | null: false foreign_key: true |
-| price        | integer | nill: false                   |
 
 ### Association
 - belongs_to :user
@@ -47,6 +50,7 @@
 
 | column         | Type    | Option                        |
 |----------------|---------|-------------------------------|
+| orders_id      | integer | null: false foreign_key: true |
 | postal_code    | string  | null: false                   |
 | prefectures_id | integer | null: false                   |
 | city           | string  | null: false                   |
