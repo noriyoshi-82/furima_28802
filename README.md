@@ -7,7 +7,8 @@
 | email        | string  | null: false |
 | password     | string  | null: false |
 | name         | string  | null: false |
-| reading_name | string  | null: false |
+| first_name   | string  | null: false |
+| last_name    | string  | null: false |
 | birthday     | date    | null: false |
 
 ### Association
