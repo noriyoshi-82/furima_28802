@@ -1,14 +1,17 @@
 # テーブル設計
 
 ## users テーブル
-| column       | Type    | Option      |
-|--------------|---------|-------------|
-| nickname     | string  | null: false |
-| email        | string  | null: false |
-| password     | string  | null: false |
-| name         | string  | null: false |
-| first_name   | string  | null: false |
-| last_name    | string  | null: false |
+| column          | Type    | Option      |
+|-----------------|---------|-------------|
+| nickname        | string  | null: false |
+| email           | string  | null: false |
+| password        | string  | null: false |
+| first_name      | string  | null: false |
+| last_name       | string  | null: false |
+| first_name_kana | string  | null: false |
+| last_name_kana  | string  | null: false |
+
+
 | birthday     | date    | null: false |
 
 ### Association
@@ -55,9 +58,9 @@
 | postal_code    | string  | null: false                   |
 | prefectures_id | integer | null: false                   |
 | city           | string  | null: false                   |
-| house_number   | integer | null: false                   |
-| building_name  | integer |                               |
-| phone_number   | integer | null: false                   |
+| house_number   | string  | null: false                   |
+| building_name  | string  |                               |
+| phone_number   | string  | null: false                   |
 
 ### Association
 - belongs_to :order
