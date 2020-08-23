@@ -5,40 +5,49 @@
 |--------------|---------|-------------|
 | nickname     | string  | null: false |
 | email        | string  | null: false |
+| password     | string  | null: false |
 | name         | string  | null: false |
 | reading_name | string  | null: false |
-| birthday     | integer | null: false |
+| birthday     | date    | null: false |
 
 ### Association
-- has_many :item
-- has_many :order
+- has_many :items
+- has_many :orders
 
 ## items テーブル
 
 | column         | Type    | Option                        |
 |----------------|---------|-------------------------------|
-| item_name      | string  | null: false                   |
+| name     　　　 | string  | null: false                   |
 | image          | string  | null: false                   |
-| text           | string  | null: false                   |
-| category       | string  | null: false                   |
-| condition      | string  | null: false                   |
-| delivery_pay   | string  | null: false                   |
-| prefectures_id | integer | null: false                   |
-| delivery_day   | string  | null: false                   |
-| item_price     | integer | null: false                   |
+| text           | text    | null: false                   |
+| price          | integer | null: false                   |
 | user_id        | integer | null: false foreign_key: true |
 
 ### Association
 - belongs_to :user
-- belongs_to :order
+- has_one :order
+- belongs_to_active_hash
 
 ## order テーブル
 
+| column       | Type    | Option                        |
+|--------------|---------|-------------------------------|
+| user_id      | integer | null: false foreign_key: true |
+| items_id     | integer | null: false foreign_key: true |
+| addresses_id | integer | null: false foreign_key: true |
+| price        | integer | nill: false                   |
+
+### Association
+- belongs_to :user
+- belongs_to :item
+- has_one :address
+
+## addresses テーブル
+
 | column         | Type    | Option                        |
 |----------------|---------|-------------------------------|
-| user_id        | integer | null: false foreign_key: true |
-| item_price     | integer | null: false foreign_key: true |
-| postal_code    | integer | null: false                   |
+| postal_code    | string  | null: false                   |
 | prefectures_id | integer | null: false                   |
 | city           | string  | null: false                   |
 | house_number   | integer | null: false                   |
@@ -46,5 +55,4 @@
 | phone_number   | integer | null: false                   |
 
 ### Association
-- belongs_to :user
-- belongs_to :item
+- belongs_to :order
