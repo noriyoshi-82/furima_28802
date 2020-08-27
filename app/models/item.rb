@@ -1,19 +1,25 @@
 class Item < ApplicationRecord
-  belongs_to :users
-  has_one_attached :file
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :category
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :delivery_pay
+  belongs_to_active_hash :prefecture
+  belongs_to_active_hash :delivery_day
+  belongs_to :user
+  has_one_attached :image
 
   with_options presence: true do
-    validates :name
     validates :image
+    validates :name
     validates :text
-    validates :price format: { with: "/^[0-9]+$/", message: "Price Out of setting range"}
     validates :user_id
-    with_option numericality: { other_than: 1 } do
-      validates :category_id
-      validates :condition_id
-      validates :delivery_pay_id
-      validates :prefectures_id
-      validates :delivery_day_id
+    with_options format: { with: /\A[0-9]+\z/, message: 'Half-width number' } do
+      validates :price, :numericality => {:greater_than => 300, :less_than => 1000000, :message => 'Out of setting range' }
     end
   end
+    validates :category_id, numericality: { other_than: 0, message: 'Category Select' }
+    validates :condition_id, numericality: { other_than: 0, message: 'Sales status Select'}
+    validates :delivery_pay_id, numericality: { other_than: 0, message: 'Shipping fee status Select' }
+    validates :prefectures_id, numericality: { other_than: 0, message: 'Prefecture Select' }
+    validates :delivery_day_id, numericality: { other_than: 0, message: 'Scheduled delivery Select' }
 end

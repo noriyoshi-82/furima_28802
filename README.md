@@ -20,7 +20,7 @@
 
 | column            | Type    | Option                        |
 |-------------------|---------|-------------------------------|
-| name     　　　    | string  | null: false                   |
+| name              | string  | null: false                   |
 | image             | string  | null: false                   |
 | text              | text    | null: false                   |
 | category_id       | integer | null: false                   |
