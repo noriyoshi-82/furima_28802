@@ -12,7 +12,7 @@
 #         expect(@item).to be_valid
 #       end
 #       it 'priceが300円以上あれば登録できる' do
-#         @item.price >= 300 
+#         @item.price >= 300
 #         expect(@item).to be_valid
 #       end
 #       it 'priceが1000000以下であれば登録できる' do

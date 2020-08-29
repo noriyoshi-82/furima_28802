@@ -11,11 +11,11 @@ describe Item do
         expect(@item).to be_valid
       end
       it 'priceが300円以上あれば登録できる' do
-        @item.price >= 300 
+        @item.price >= 300
         expect(@item).to be_valid
       end
       it 'priceが1000000以下であれば登録できる' do
-        @item.price >= 1000000
+        @item.price >= 1_000_000
         expect(@item).to be_valid
       end
       it 'priceが半角数字であれば登録できる' do
@@ -51,34 +51,34 @@ describe Item do
         expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
       it 'priceが1000000以上であれば登録できない' do
-        @item.price = 1000001
+        @item.price = 1_000_001
         @item.valid?
         expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
       it 'categoryが -- だと登録できない' do
         @item.category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category Category Select")
+        expect(@item.errors.full_messages).to include('Category Category Select')
       end
       it 'conditionが -- だと登録できない' do
         @item.condition_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition Sales status Select")
+        expect(@item.errors.full_messages).to include('Condition Sales status Select')
       end
       it 'delivery_payが -- だと登録できない' do
         @item.delivery_pay_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery pay Shipping fee status Select")
+        expect(@item.errors.full_messages).to include('Delivery pay Shipping fee status Select')
       end
       it 'prefecturesが -- だと登録できない' do
         @item.prefectures_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefectures Prefecture Select")
+        expect(@item.errors.full_messages).to include('Prefectures Prefecture Select')
       end
       it 'delivery_dayが -- だと登録できない' do
         @item.delivery_day_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery day Scheduled delivery Select")
+        expect(@item.errors.full_messages).to include('Delivery day Scheduled delivery Select')
       end
     end
   end

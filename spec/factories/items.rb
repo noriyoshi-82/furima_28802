@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :item do
     name             { Faker::Name.initials(number: 4) }
     text             { Faker::Lorem.sentence }
-    price            { 10000 }
+    price            { 10_000 }
     category_id      { 1 }
     condition_id     { 1 }
     delivery_pay_id  { 1 }
