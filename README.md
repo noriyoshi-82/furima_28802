@@ -41,7 +41,7 @@
 | column       | Type    | Option                        |
 |--------------|---------|-------------------------------|
 | user_id      | integer | null: false foreign_key: true |
-| items_id     | integer | null: false foreign_key: true |
+| item_id      | integer | null: false foreign_key: true |
 
 ### Association
 - belongs_to :user
