@@ -129,7 +129,7 @@
       <%= link_to '新規投稿商品', new_user_session_path, class: "subtitle" %>
     <% end %>
     <ul class='item-lists'>
-    <% if @items.nil? %>
+    <% if @items.present? %>
       <% @items.each do |item| %>
         <li class='list'>
           <%= link_to "#" do %>
@@ -158,7 +158,7 @@
           </div>
         </li>
       <% end %>
-    <% end %>
+      <% end %>
 
       <%# 商品がない場合のダミー %>
       <% else %>
