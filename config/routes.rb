@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "items#index"
-  get 'orders/index'
   resources :items do
     member do
-      resources :orders, only: :index
+      resources :orders, only: [:index, :create]
     end
   end
 end
