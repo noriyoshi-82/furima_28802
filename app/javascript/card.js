@@ -1,5 +1,5 @@
 const pay = () => {
-  Payjp.setPublicKey("pk_test_ebbf0e94cbeea25a32c67ed3"); 
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY); 
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -27,9 +27,10 @@ const pay = () => {
 
       document.getElementById("charge-form").submit();
       document.getElementById("charge-form").reset();
-      } else {
-      document.getElementById("charge-form").submit();
-    }
+      } else{
+        document.getElementById("charge-form").submit();
+        document.getElementById("charge-form").reset();
+      }
     });
   });
 };
