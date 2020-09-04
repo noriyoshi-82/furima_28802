@@ -9,21 +9,21 @@ class OrdersController < ApplicationController
     elsif @item.order
       redirect_to root_path
     end
-
   end
 
-  def create 
+  def create
     @order = OrderForm.new(order_address_params)
-      if @order.valid?
-        pay_item
-        @order.save
-        return redirect_to root_path
-      else
-        render :index
-      end
+    if @order.valid?
+      pay_item
+      @order.save
+      redirect_to root_path
+    else
+      render :index
+    end
   end
 
   private
+
   def set_item
     @item = Item.find(params[:id])
   end
@@ -33,11 +33,11 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = "sk_test_34c8d96cde9f826531ae44c1"
+    Payjp.api_key = 'sk_test_34c8d96cde9f826531ae44c1'
     Payjp::Charge.create(
       amount: @item.price,
       card: params[:token],
-      currency:'jpy'
-   )
+      currency: 'jpy'
+    )
   end
 end
