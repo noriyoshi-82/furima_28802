@@ -4,7 +4,6 @@ describe Item do
     @item = FactoryBot.build(:item)
     @item.image = fixture_file_upload('app/assets/images/item-sample.png')
   end
-
   describe '新規商品情報登録' do
     context '新規商品情報登録がうまくいくとき' do
       it '全て項目が存在すれば登録できる' do

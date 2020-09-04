@@ -4,7 +4,7 @@ class OrderForm
 
   with_options presence: true do
     validates :token
-    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "code Input correctly" }
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "Input correctly" }
     validates :city
     validates :house_number
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }
